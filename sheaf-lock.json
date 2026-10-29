@@ -1,0 +1,10 @@
+{
+    "files": {
+        "resources/js/utils.js": [
+            "dark-theme"
+        ],
+        "Livewire/Concerns/WithReordering.php": [
+            "kanban"
+        ]
+    }
+}

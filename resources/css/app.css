@@ -1,0 +1,108 @@
+/* ─── Fonts ──────────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Geist:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+/* ─── Design tokens ──────────────────────────────────────────────────────── */
+@import "./theme.css";
+@import "./colors/palettes.css";
+@import "./colors/theme-mappings.css";
+
+/* ─── Global resets & scrollbar ─────────────────────────────────────────── */
+@import "./base.css";
+
+/* ─── Tailwind ───────────────────────────────────────────────────────────── */
+@import "tailwindcss";
+
+/* ─── Utilities (@utility rules must come after tailwindcss) ─────────────── */
+@import "./utilities.css";
+
+/* ─── Components ─────────────────────────────────────────────────────────── */
+@import "./components/button.css";
+@import "./components/calendar/cell.css";
+@import "./components/sidebar.css";
+
+/* ─── Tailwind source paths ──────────────────────────────────────────────── */
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views.blade.php';
+
+/* ─── Dark mode variant ──────────────────────────────────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *)); /* By Sheaf.dev */
+
+/* ─── Color scheme ───────────────────────────────────────────────────────── */
+:root {
+    color-scheme: light dark;
+}
+
+html.dark {
+    color-scheme: dark;
+}
+
+/* ─── Base text colors ───────────────────────────────────────────────────── */
+@layer base {
+    html {
+        @apply text-gray-700;
+    }
+
+    html.dark {
+        @apply text-gray-100;
+    }
+}
+
+/* ─── Livewire patches ───────────────────────────────────────────────────── */
+.wire-navigate-progress {
+    height: 4px !important;
+}
+
+.wire-transition,
+.wire-transition *,
+.livewire-loading-element {
+    z-index: 0 !important;
+    position: relative !important;
+}
+
+/* ─── Alpine.js helpers ──────────────────────────────────────────────────── */
+[x-cloak] {
+    display: none !important;
+}
+
+[data-expanded] > [x-cloak],
+[data-expanded] [x-cloak] {
+    display: block !important;
+}
+
+[data-expanded] > button > span:last-child {
+    transform: rotate(180deg);
+}
+
+/* ─── Transition system ──────────────────────────────────────────────────── */
+.v-load * {
+    transition: none !important;
+}
+
+.transition-ui,
+.transition-ui *,
+.transition-fast,
+.transition-fast * {
+    transition-property:
+        color, background-color, border-color, fill, stroke, opacity, filter;
+}
+
+.transition-ui,
+.transition-ui * {
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+}
+
+html.is-navigating .transition-ui,
+html.is-navigating .transition-ui *,
+html.is-navigating .transition-fast,
+html.is-navigating .transition-fast * {
+    transition: none !important;
+    transition-duration: 0s !important;
+    animation: none !important;
+}
+.sortable-fallback,
+.sortable-drag {
+    @apply opacity-100! shadow-lg shadow-neutral-400/10 rounded-md;
+}

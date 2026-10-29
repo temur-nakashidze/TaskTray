@@ -1,0 +1,55 @@
+[data-slot="dashboard-sidebar"] {
+    flex-shrink: 0;
+    position: sticky;
+    top: var(--header-height, 0px);
+    align-self: flex-start;
+    width: 17.5rem;
+}
+
+[data-slot="dashboard-sidebar-panel"] {
+    width: 100%;
+    height: calc(100dvh - var(--header-height, 0px) - 2rem);
+}
+
+@media (max-width: 767px) {
+    [data-slot="dashboard-sidebar"] {
+        width: 0;
+    }
+}
+
+html[data-sidebar-collapsed] [data-slot="sidebar-navlist-item"] {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+html[data-sidebar-collapsed] [data-slot="sidebar-navlist-item"] [data-slot="sidebar-navlist-label"] {
+    max-width: 0px;
+    opacity: 0;
+}
+
+html[data-sidebar-collapsed] [data-slot="sidebar-navlist-item"] [data-slot="icon"] {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+html[data-sidebar-collapsed] [data-slot="sidebar-navlist-item"] [data-slot="badge"] {
+    display: block;
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    transform-origin: top right;
+}
+
+html[data-sidebar-collapsed] [data-slot="sidebar-separator-collapsed"] {
+    display: block;
+}
+
+html[data-sidebar-collapsed] [data-slot="sidebar-navlist-group-header"] {
+    display: none;
+}
+
+html[data-sidebar-collapsed] [data-slot="sidebar-navlist-group-items"] {
+    margin: 0;
+    align-items: center;
+}

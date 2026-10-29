@@ -1,0 +1,164 @@
+/* By Sheaf.dev */
+
+:root {
+    --color-ink-base: var(--color-neutral-700);
+    --color-ink-strong: var(--color-neutral-800);
+    --color-ink-muted: var(--color-neutral-600);
+    --color-ink-subtle: var(--color-neutral-400);
+
+    --color-line-base: var(--color-neutral-400);
+    --color-line-strong: var(--color-neutral-500);
+    --color-line-subtle: var(--color-neutral-200);
+
+    /* Set Mauve as default fallback directly */
+    --color-theme-50: var(--color-dim-grey-50);
+    --color-theme-100: var(--color-dim-grey-100);
+    --color-theme-200: var(--color-dim-grey-200);
+    --color-theme-300: var(--color-dim-grey-300);
+    --color-theme-400: var(--color-dim-grey-400);
+    --color-theme-500: var(--color-dim-grey-500);
+    --color-theme-600: var(--color-dim-grey-600);
+    --color-theme-700: var(--color-dim-grey-700);
+    --color-theme-800: var(--color-dim-grey-800);
+    --color-theme-900: var(--color-dim-grey-900);
+    --color-theme-950: var(--color-dim-grey-950);
+
+    --color-accent-50: var(--color-natur-50);
+    --color-accent-100: var(--color-natur-100);
+    --color-accent-200: var(--color-natur-200);
+    --color-accent-300: var(--color-natur-300);
+    --color-accent-400: var(--color-natur-400);
+    --color-accent-500: var(--color-natur-500);
+    --color-accent-600: var(--color-natur-600);
+    --color-accent-700: var(--color-natur-700);
+    --color-accent-800: var(--color-natur-800);
+    --color-accent-900: var(--color-natur-900);
+    --color-accent-950: var(--color-natur-950);
+}
+
+:root[data-density="medium"] {
+    --padding-box-lg: 1.5rem; /* ≈ p-6  (24px) */
+    --padding-box-md: 1rem; /* ≈ p-4  (16px) */
+    --padding-box-sm: 0.75rem; /* ≈ p-3  (12px) */
+    --padding-box-xs: 0.5rem; /* ≈ p-2   (8px) */
+    --padding-box: var(--padding-box-md);
+
+    --gap-micro: 0.375rem; /* ≈ gap-1.5  (6px)  — checkbox + label */
+    --gap-form: 0.75rem; /* ≈ gap-3   (12px)  — stacked form fields */
+    --gap-cards: 1rem; /* ≈ gap-4   (16px)  — card grid, kanban */
+    --gap-section: 2rem; /* ≈ gap-8   (32px)  — major page sections */
+    --gap-layout: 1.5rem; /* ≈ gap-6   (24px)  — sidebar ↔ content */
+}
+
+:root[data-density="compact"] {
+    --padding-box-lg: 1rem; /* ≈ p-4   (16px) */
+    --padding-box-md: 0.75rem; /* ≈ p-3   (12px) */
+    --padding-box-sm: 0.5rem; /* ≈ p-2    (8px) */
+    --padding-box-xs: 0.375rem; /* ≈ p-1.5  (6px) */
+    --padding-box: var(--padding-box-md);
+
+    --gap-micro: 0.25rem; /* ≈ gap-1    (4px) */
+    --gap-form: 0.5rem; /* ≈ gap-2    (8px) */
+    --gap-cards: 0.75rem; /* ≈ gap-3   (12px) */
+    --gap-section: 1.5rem; /* ≈ gap-6   (24px) */
+    --gap-layout: 1rem; /* ≈ gap-4   (16px) */
+}
+
+:root[data-density="spacious"] {
+    --padding-box-lg: 2rem; /* ≈ p-8   (32px) */
+    --padding-box-md: 1.5rem; /* ≈ p-6   (24px) */
+    --padding-box-sm: 1rem; /* ≈ p-4   (16px) */
+    --padding-box-xs: 0.75rem;
+    --padding-box: var(--padding-box-md);
+
+    --gap-micro: 0.5rem; /* ≈ gap-2    (8px) */
+    --gap-form: 1rem; /* ≈ gap-4   (16px) */
+    --gap-cards: 1.5rem; /* ≈ gap-6   (24px) */
+    --gap-section: 3rem; /* ≈ gap-12  (48px) */
+    --gap-layout: 2rem; /* ≈ gap-8   (32px) */
+}
+
+@theme inline {
+    --tracking-snug-wide: 0.0115em;
+    --text-base: 14px; /* 14px */
+    --font-sans: "Geist", ui-sans-serif, system-ui;
+    --font-display: "Roboto Slab", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --font-label: "Geist mono", sans-serif;
+
+    /* ── Status colors ── */
+    --color-success: var(--color-accent-500);
+    --color-success-fg: var(--color-accent-700);
+    --color-error: var(--color-red-500);
+    --color-error-fg: var(--color-red-700);
+    --color-warning: var(--color-amber-500);
+    --color-warning-fg: var(--color-amber-700);
+    --color-info: var(--color-blue-500);
+    --color-info-fg: var(--color-blue-700);
+
+    /* ── Surface tokens ── */
+    --color-canvas: var(--color-neutral-100);
+    --color-surface: var(--color-neutral-50);
+    --color-raised: #f8f8f9;
+    --color-sunken: var(--color-neutral-100);
+
+    /* ── Ink tokens (resolved in @layer base with opacity) ── */
+    --color-ink-base: rgb(from var(--color-neutral-800) r g b / 75%);
+    --color-ink-strong: rgb(from var(--color-neutral-800) r g b / 90%);
+    --color-ink-muted: rgb(from var(--color-neutral-800) r g b / 60%);
+    --color-ink-subtle: rgb(from var(--color-neutral-800) r g b / 35%);
+
+    /* ── Line tokens (resolved in @layer base with opacity) ── */
+    --color-line-base: rgb(from var(--color-neutral-600) r g b / 20%);
+    --color-line-strong: rgb(from var(--color-neutral-600) r g b / 50%);
+    --color-line-subtle: rgb(from var(--color-neutral-600) r g b / 15%);
+
+    /* ── Radius ── */
+    --radius-button: 0.25rem; /* rounded-xl */
+    --radius-input: 0.25rem; /* ~rounded (4px default) */
+    --radius-box: 0.5rem; /* rounded-2xl (24px) */
+    --radius-popup: min(var(--radius-box), 0.375rem);
+    --radius-popup-item: min(var(--radius-popup), 0.25rem);
+    --radius-item: max(
+        calc(var(--radius-box) - var(--padding-box-lg)),
+        calc(var(--radius-box) * 0.7)
+    );
+}
+
+@layer theme {
+    .dark {
+        --color-canvas: var(--color-neutral-900) !important;
+        --color-surface: var(--color-neutral-850) !important;
+        --color-raised: var(--color-neutral-800) !important;
+        --color-sunken: var(--color-neutral-900) !important;
+
+        --color-ink-base: rgb(
+            from var(--color-neutral-50) r g b / 75%
+        ) !important;
+        --color-ink-strong: rgb(
+            from var(--color-neutral-50) r g b / 95%
+        ) !important;
+        --color-ink-muted: rgb(
+            from var(--color-neutral-50) r g b / 60%
+        ) !important;
+        --color-ink-subtle: rgb(
+            from var(--color-neutral-50) r g b / 35%
+        ) !important;
+
+        --color-line-base: rgb(
+            from var(--color-neutral-300) r g b / 20%
+        ) !important;
+        --color-line-strong: rgb(
+            from var(--color-neutral-300) r g b / 50%
+        ) !important;
+        --color-line-subtle: rgb(
+            from var(--color-neutral-300) r g b / 12%
+        ) !important;
+
+        /* Status fg overrides */
+        --color-success-fg: var(--color-accent-300) !important;
+        --color-error-fg: var(--color-red-300) !important;
+        --color-warning-fg: var(--color-amber-300) !important;
+        --color-info-fg: var(--color-blue-300) !important;
+    }
+}

@@ -1,0 +1,65 @@
+@utility mask-fade {
+    --mask-dir: to right; /* default */
+    mask-image: linear-gradient(
+            var(--mask-dir),
+            black 0%,
+            black 30%,
+            transparent 70%
+    );
+    -webkit-mask-image: linear-gradient(
+            var(--mask-dir),
+            black 0%,
+            black 30%,
+            transparent 70%
+    );
+}
+
+@utility font-normal {
+    font-weight: 400;
+
+    @variant dark {
+        font-weight: 300;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+@utility font-medium {
+    font-weight: 500;
+
+    @variant dark {
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+@utility font-semibold {
+    font-weight: 600;
+
+    @variant dark {
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+@utility font-bold {
+    font-weight: 700;
+
+    @variant dark {
+        font-weight: 600;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(200%);
+    }
+}

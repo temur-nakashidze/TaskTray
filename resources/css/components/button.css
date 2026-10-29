@@ -1,0 +1,92 @@
+/* ─── Button CSS Tooltips ──────────────────────────────────────────────── */
+.btn-tooltip {
+    position: relative;
+}
+
+.btn-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-neutral-900, #111);
+    color: var(--color-neutral-50, #f9f9f9);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition:
+        opacity 150ms ease var(--tooltip-delay, 600ms),
+        /* ✅ delay on show */ transform 150ms ease var(--tooltip-delay, 600ms);
+    z-index: 50;
+    bottom: calc(100% + 6px);
+    top: auto;
+}
+
+.btn-tooltip:hover::after {
+    opacity: 1;
+    transition:
+        opacity 150ms ease var(--tooltip-delay, 600ms),
+        /* ✅ show with delay */ transform 150ms ease
+            var(--tooltip-delay, 600ms);
+}
+
+.btn-tooltip:not(:hover)::after {
+    transition:
+        opacity 150ms ease 0ms,
+        /* ✅ hide instantly, no delay */ transform 150ms ease 0ms;
+}
+
+/* placements */
+.btn-tooltip-top::after {
+    bottom: calc(100% + 6px);
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-tooltip-bottom::after {
+    top: calc(100% + 6px);
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-tooltip-left::after {
+    right: calc(100% + 6px);
+    left: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+}
+
+.btn-tooltip-right::after {
+    left: calc(100% + 6px);
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+}
+
+/* responsive: hide above breakpoint */
+@media (min-width: 640px) {
+    .btn-tooltip-hide-above-sm::after {
+        display: none;
+    }
+}
+@media (min-width: 768px) {
+    .btn-tooltip-hide-above-md::after {
+        display: none;
+    }
+}
+@media (min-width: 1024px) {
+    .btn-tooltip-hide-above-lg::after {
+        display: none;
+    }
+}
+@media (min-width: 1280px) {
+    .btn-tooltip-hide-above-xl::after {
+        display: none;
+    }
+}
